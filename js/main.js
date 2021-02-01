@@ -3,10 +3,10 @@
 
 const randomWholeNumber = (minNumber, maxNumber) => {
   if (minNumber < 0) {
-      minNumber = 0;
+    minNumber = 0;
   };
   if (maxNumber < minNumber) {
-      maxNumber = minNumber;
+    maxNumber = minNumber;
   };
   minNumber = Math.ceil(minNumber);
   maxNumber = Math.floor(maxNumber);
@@ -17,10 +17,10 @@ const randomWholeNumber = (minNumber, maxNumber) => {
 
 const randomNumber = (minNumber, maxNumber, numberAfter) => {
   if (minNumber < 0) {
-      minNumber = 0;
+    minNumber = 0;
   };
   if (maxNumber < minNumber) {
-      maxNumber = minNumber;
+    maxNumber = minNumber;
   };
-  return (Math.random() * (maxNumber - minNumber) + minNumber).toFixed(numberAfter);
+  return Number((Math.random() * (maxNumber - minNumber) + minNumber).toFixed(numberAfter));
 };
