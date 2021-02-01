@@ -13,6 +13,8 @@ const generateWholeNumber = (minNumber, maxNumber) => {
   return Math.floor(Math.random() * (maxNumber - minNumber)) + minNumber;
 }
 
+generateWholeNumber();
+
 //Получение случайного числа с плавающей запятой
 
 const generateNumber = (minNumber, maxNumber, numberAfter) => {
@@ -24,3 +26,5 @@ const generateNumber = (minNumber, maxNumber, numberAfter) => {
   }
   return Number((Math.random() * (maxNumber - minNumber) + minNumber).toFixed(numberAfter));
 }
+
+generateNumber();
