@@ -1,7 +1,7 @@
 
 //Получение случайного целого числа, частично взял с https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
-const randomizeWholeNumber = (minNumber, maxNumber) => {
+const generateWholeNumber = (minNumber, maxNumber) => {
   if (minNumber < 0) {
     minNumber = 0;
   }
@@ -15,7 +15,7 @@ const randomizeWholeNumber = (minNumber, maxNumber) => {
 
 //Получение случайного числа с плавающей запятой
 
-const randomizeNumber = (minNumber, maxNumber, numberAfter) => {
+const generateNumber = (minNumber, maxNumber, numberAfter) => {
   if (minNumber < 0) {
     minNumber = 0;
   }
