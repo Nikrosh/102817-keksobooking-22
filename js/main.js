@@ -101,3 +101,4 @@ const similarObjectCount = 10;
 
 const similarObjects = new Array(similarObjectCount).fill(null).map(() => createObject());
 
+console.log(similarObjects);
