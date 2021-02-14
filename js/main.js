@@ -74,26 +74,26 @@ const generateStrings = (array) =>  {
 
 const createObject = () => {
   return {
-  author: {
-    avatar: 'img/avatars/user' + '0' + generateWholeNumber(1, 8) + '.png',
-  },
-  offer: {
-    title: generateText(generateWholeNumber(1, 4)),
-    address: 'location.x, location.y',
-    price: generateWholeNumber(1000, 100000),
-    type: typesObject[generateWholeNumber(0, 3)],
-    rooms: generateWholeNumber(1, 5),
-    guests: generateWholeNumber(1, 5),
-    checkin: times[generateWholeNumber(0, 2)],
-    checkout: times[generateWholeNumber(0, 2)],
-    features: generateStrings(featuresObject),
-    description: generateText(generateWholeNumber(6, 15)),
-    photos: generateStrings(photosOdject),
-  },
-  location: {
-    x: generateNumber(35.65000, 35.70000, 5),
-    y: generateNumber(139.70000, 139.80000, 5),
-  },
+    author: {
+      avatar: 'img/avatars/user' + '0' + generateWholeNumber(1, 8) + '.png',
+    },
+    offer: {
+      title: generateText(generateWholeNumber(1, 4)),
+      address: 'location.x, location.y',
+      price: generateWholeNumber(1000, 100000),
+      type: typesObject[generateWholeNumber(0, 3)],
+      rooms: generateWholeNumber(1, 5),
+      guests: generateWholeNumber(1, 5),
+      checkin: times[generateWholeNumber(0, 2)],
+      checkout: times[generateWholeNumber(0, 2)],
+      features: generateStrings(featuresObject),
+      description: generateText(generateWholeNumber(6, 15)),
+      photos: generateStrings(photosOdject),
+    },
+    location: {
+      x: generateNumber(35.65000, 35.70000, 5),
+      y: generateNumber(139.70000, 139.80000, 5),
+    },
   }
 };
 
