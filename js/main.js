@@ -29,40 +29,29 @@ const generateNumber = (minNumber, maxNumber, numberAfter) => {
 
 generateNumber();
 
-//Список слов для генерации названия и описания
+//Массив для названия
 
-const words = ['огромный', 'желтый', 'особняк', 'комнаты', 'кирпичный', 'для', 'с', 'около', 'маленький', 'белый', 'палаты', 'дворец', 'квартира', 'ремонт', 'европейский', 'уют', 'качество', 'доступная', 'славяне', 'только', 'если', 'регистрация', 'бабушкин', 'хороший'];
+const TITLES = ['1 комнатная квартира', '2х комнатная квартира', 'Квартира студия', 'Частный дом', 'Пентхаус'];
 
-//Функция для получения случайной строки
+//Массив для описания
 
-const generateText = (sumWords) => {
-  let randomText = '';
-  let i = 0;
-  while (i < sumWords) {
-    randomText += words[generateWholeNumber(0, words.length - 1)]
-    if (i !== sumWords - 1) {
-      randomText += ' ';
-    }
-    i += 1;
-  }
-  return randomText
-}
+const DISCRIPTIONS = ['Уютная квартира с современным ремонтом', 'Жилье не далеко от метро', 'Жилье с современным ремонтом', 'Сдам квартиру, срочно, только славяне'];
 
 //Типы объекта
 
-const typesObject = ['palace', 'flat', 'house', 'bungalow'];
+const TYPES_OBJECT = ['palace', 'flat', 'house', 'bungalow'];
 
 //Время заезда и выезда
 
-const times = ['12:00', '13:00', '14:00'];
+const TIMES = ['12:00', '13:00', '14:00'];
 
 //Дополнительный опции
 
-const featuresObject = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'];
+const FEATURES_OBJECT = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'];
 
 //Фото
 
-const photosOdject = ['http://o0.github.io/assets/images/tokyo/hotel1.jpg', 'http://o0.github.io/assets/images/tokyo/hotel2.jpg', 'http://o0.github.io/assets/images/tokyo/hotel3.jpg']
+const PHOTOS_OBJECT = ['http://o0.github.io/assets/images/tokyo/hotel1.jpg', 'http://o0.github.io/assets/images/tokyo/hotel2.jpg', 'http://o0.github.io/assets/images/tokyo/hotel3.jpg']
 
 //Функция для генерации случайного массива строк
 
@@ -73,22 +62,24 @@ const generateStrings = (array) =>  {
 //Объект
 
 const createObject = () => {
+  let locationX = generateNumber(35.65000, 35.70000, 5);
+  let locationY = generateNumber(139.70000, 139.80000, 5);
   return {
     author: {
       avatar: 'img/avatars/user' + '0' + generateWholeNumber(1, 8) + '.png',
     },
     offer: {
-      title: generateText(generateWholeNumber(1, 4)),
-      address: 'location.x, location.y',
+      title: TITLES[generateWholeNumber(0, 4)],
+      address: locationX + ', ' + locationY,
       price: generateWholeNumber(1000, 100000),
-      type: typesObject[generateWholeNumber(0, 3)],
+      type: TYPES_OBJECT[generateWholeNumber(0, 3)],
       rooms: generateWholeNumber(1, 5),
       guests: generateWholeNumber(1, 5),
-      checkin: times[generateWholeNumber(0, 2)],
-      checkout: times[generateWholeNumber(0, 2)],
-      features: generateStrings(featuresObject),
-      description: generateText(generateWholeNumber(6, 15)),
-      photos: generateStrings(photosOdject),
+      checkin: TIMES[generateWholeNumber(0, 2)],
+      checkout: TIMES[generateWholeNumber(0, 2)],
+      features: generateStrings(FEATURES_OBJECT),
+      description: DISCRIPTIONS[generateWholeNumber(0, 3)],
+      photos: generateStrings(PHOTOS_OBJECT),
     },
     location: {
       x: generateNumber(35.65000, 35.70000, 5),
@@ -97,8 +88,8 @@ const createObject = () => {
   }
 };
 
-const similarObjectCount = 10;
+const SIMILAR_OBJECT_COUNT = 10;
 
-const similarObjects = new Array(similarObjectCount).fill(null).map(() => createObject());
+const similarObjects = new Array(SIMILAR_OBJECT_COUNT).fill(null).map(createObject);
 
 console.log(similarObjects);
